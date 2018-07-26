@@ -1,0 +1,30 @@
+.change-shelf {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.change-shelf button {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 10%;
+  color: var(--theme-primary-light-color);
+  background: var(--theme-primary-color);
+  box-shadow: var(--theme-button-box-shadow);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin: 0 10px;
+  font-size: 1em;
+  transition: 0.3s;
+}
+.change-shelf button:hover, .change-shelf button:focus {
+  box-shadow: var(--theme-button-box-shadow), var(--theme-button-box-shadow-active);
+}
+.change-shelf button.selected {
+  color: var(--theme-secondary-color);
+}

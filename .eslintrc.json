@@ -34,6 +34,8 @@
         ]
       }
     ],
+    "react/no-unused-prop-types": 0,
+    "react/forbid-prop-types": false,
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "linebreak-style": 0,
@@ -44,7 +46,8 @@
       {
         "semi": false,
         "singleQuote": true,
-        "trailingComma": "none"
+        "trailingComma": "none",
+        "printWidth": "120"
       }
     ],
     "jsx-a11y/anchor-is-valid": [

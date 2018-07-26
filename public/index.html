@@ -30,6 +30,41 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script>
+  <script>
+    let pattern = Trianglify({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      cell_size: 75,
+      variance: 1,
+      x_colors: ['#071013', '#33658A', '#56E39F', '#607466', '#5BC8AF'],
+      y_colors: 'match_x',
+      palette: Trianglify.colorbrewer,
+      color_space: 'lab',
+      color_function: false,
+      stroke_width: 1.51,
+      seed: null
+    });
+    document.body.appendChild(pattern.canvas())
+    window.addEventListener('resize', () => {
+      pattern = Trianglify({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        cell_size: 75,
+        variance: 1,
+        x_colors: ['#071013', '#33658A', '#56E39F', '#607466', '#5BC8AF'],
+        y_colors: 'match_x',
+        palette: Trianglify.colorbrewer,
+        color_space: 'lab',
+        color_function: false,
+        stroke_width: 1.51,
+        seed: null
+      });
+      let canvas = document.querySelector('canvas')
+      canvas.parentNode.removeChild(canvas)
+      document.body.appendChild(pattern.canvas())
+    });
+  </script>
 </body>
 
 </html>

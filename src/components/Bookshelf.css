@@ -1,0 +1,97 @@
+.bookshelf {
+  padding: 80px 10px 20px;
+}
+
+@media (min-width: 600px) {
+  .bookshelf {
+    padding: 80px 20px 40px;
+  }
+}
+
+.bookshelf-title {
+  border-bottom: 100px solid #000;
+}
+.bookshelf-books {
+  text-align: center;
+}
+
+.books-grid {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.books-grid li {
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.book {
+  width: 140px;
+}
+.book-title {
+  font-size: 0.8em;
+}
+.book-authors {
+  font-size: 0.7em;
+}
+.book-title {
+  color: var(--theme-primary-color);
+  font-weight: bold;
+  margin-top: 10px;
+}
+.book-authors {
+  color: var(--theme-primary-color);
+}
+
+.book-top {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.book-shelf-changer {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--theme-primary-color);
+  background-image: url('../icons/arrow-drop-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  box-shadow: var(--theme-button-box-shadow);
+}
+.book-shelf-changer select {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.book-shelf-changer select:focus, .book-shelf-changer select option:focus {
+  border: none;
+  outline: none;
+}
+.book-shelf-changer select {
+  color: var(--theme-secondary-color);
+  background: var(--theme-primary-color);
+}
+.book-shelf-changer select option:focus {
+  /* color: var(--theme-secondary-color); */
+  /* background: var(--theme-tertiary-color); */
+}
+
+.book-cover {
+  box-shadow: var(--theme-button-box-shadow);
+  background: var(--theme-primary-light-color);
+  transition: 0.3s;
+}
+.book-cover:hover {
+  box-shadow: var(--theme-book-box-shadow-active);
+}

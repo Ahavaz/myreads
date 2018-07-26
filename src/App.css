@@ -17,6 +17,9 @@ html, body, .root {
 body {
   line-height: 1.5;
 }
+body *, body *::placeholder {
+  transition: 250ms;
+}
 
 .list-books-title {
   position: fixed;
@@ -57,7 +60,6 @@ body {
   cursor: pointer;
   border: none;
   outline: none;
-  transition: 0.3s;
 }
 .open-search button:hover, .open-search button:focus {
   transform: rotateZ(180deg);

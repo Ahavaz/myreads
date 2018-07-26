@@ -86,7 +86,6 @@
 .book-cover {
   box-shadow: var(--theme-button-box-shadow);
   background: var(--theme-primary-light-color);
-  transition: 0.3s;
 }
 .book-cover:hover {
   box-shadow: var(--theme-book-box-shadow-active);

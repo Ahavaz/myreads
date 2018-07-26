@@ -20,7 +20,6 @@
   outline: none;
   margin: 0 10px;
   font-size: 1em;
-  transition: 0.3s;
 }
 .change-shelf button:hover, .change-shelf button:focus {
   box-shadow: var(--theme-button-box-shadow), var(--theme-button-box-shadow-active);

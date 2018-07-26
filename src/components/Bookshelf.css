@@ -82,10 +82,6 @@
   color: var(--theme-secondary-color);
   background: var(--theme-primary-color);
 }
-.book-shelf-changer select option:focus {
-  /* color: var(--theme-secondary-color); */
-  /* background: var(--theme-tertiary-color); */
-}
 
 .book-cover {
   box-shadow: var(--theme-button-box-shadow);

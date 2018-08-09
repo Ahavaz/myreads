@@ -1,0 +1,37 @@
+.list-books {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.list-books-title {
+  height: 53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+.list-books-title h1 {
+  font-weight: 400;
+  user-select: none;
+}
+.list-books-title h1:hover {
+  opacity: 0.6;
+}
+
+.open-search {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary-color) url('../icons/add.svg') no-repeat center;
+  background-size: 28px;
+  outline: none;
+}
+.open-search:hover, .open-search:focus {
+  transform: rotateZ(90deg);
+}

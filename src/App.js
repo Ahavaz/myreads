@@ -28,8 +28,8 @@ class App extends Component {
       .then(() => console.log('BOOKS', this.state.books))
   }
 
-  updateBookShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(() => this.fetchBooks())
+  updateBookShelf = (bookId, shelf) => {
+    BooksAPI.update(bookId, shelf).then(() => this.fetchBooks())
     // if (id) {
     //   this.setState(state => ({
     //     books: state.books.map(book => {

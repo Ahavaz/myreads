@@ -1,28 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './ListBooks.css'
-import Bookshelf from './Bookshelf'
-import ChangeShelf from './ChangeShelf'
+import Book from './Book'
 
-const ListBooks = ({ books, shelf, onShowShelf, onUpdateBookShelf }) => (
+const ListBooks = ({ books, onUpdateBookShelf }) => (
   <div className="list-books">
-    <header className="list-books-title">
-      <h1>MyReads</h1>
-    </header>
-    <Bookshelf
-      books={books.filter(book => book.shelf === shelf)}
-      onUpdateBookShelf={onUpdateBookShelf}
-    />
-    <ChangeShelf shelf={shelf} onShowShelf={onShowShelf} />
-    <Link to="/search" className="open-search" />
+    <ol className="books-grid">
+      {books.map(book => (
+        <li key={book.id}>
+          <Book
+            id={book.id}
+            title={book.title}
+            shelf={book.shelf}
+            image={book.imageLinks}
+            authors={book.authors}
+            rating={book.averageRating}
+            onUpdateBookShelf={onUpdateBookShelf}
+          />
+        </li>
+      ))}
+    </ol>
   </div>
 )
 
 ListBooks.propTypes = {
   books: PropTypes.array.isRequired,
-  shelf: PropTypes.string.isRequired,
-  onShowShelf: PropTypes.func.isRequired,
   onUpdateBookShelf: PropTypes.func.isRequired
 }
 

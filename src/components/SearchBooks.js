@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import sortBy from 'sort-by'
 import * as BooksAPI from '../utils/BooksAPI'
 import './SearchBooks.css'
-import Bookshelf from './Bookshelf'
+import ListBooks from './ListBooks'
 import SearchBar from './SearchBar'
 
 class SearchBooks extends Component {
@@ -24,19 +24,13 @@ class SearchBooks extends Component {
           query === this.state.query.trim() &&
           this.setState({
             searchedBooks:
-              (!searchedBooks.error &&
-                searchedBooks.map(searchedBook => {
-                  if (
-                    this.props.books.filter(book => book.id === searchedBook.id)
-                      .length !== 0
-                  )
-                    return this.props.books.filter(
-                      book => book.id === searchedBook.id
-                    )[0]
-
-                  return searchedBook
-                })) ||
-              searchedBooks
+              (searchedBooks.error && searchedBooks) ||
+              searchedBooks.map(searchedBook => {
+                const match = this.props.books.filter(
+                  book => book.id === searchedBook.id
+                )
+                return match.length ? match[0] : searchedBook
+              })
           })
       )
       .then(() =>
@@ -44,7 +38,7 @@ class SearchBooks extends Component {
       )
   }
 
-  // updateBookState = searchedBooks => {
+  // syncBookState = searchedBooks => {
   //   searchedBooks.map(searchedBook => {
   //     if (
   //       this.props.books.filter(book => book.id === searchedBook.id).length !==
@@ -80,7 +74,7 @@ class SearchBooks extends Component {
             <h1>Sorry, no matches found :|</h1>
           </div>
         ) : query ? (
-          <Bookshelf
+          <ListBooks
             books={searchedBooks.sort(sortBy('title'))}
             onUpdateBookShelf={onUpdateBookShelf}
           />

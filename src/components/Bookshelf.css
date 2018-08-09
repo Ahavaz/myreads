@@ -1,21 +1,37 @@
 .bookshelf {
-  text-align: center;
-  padding: 20px;
-  flex: 1;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.books-grid {
-  height: 100%;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.bookshelf-title {
+  height: 53px;
   display: flex;
   justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  background: var(--primary-color);
+  color: var(--secondary-color);
 }
-.books-grid li {
-  padding: 10px 15px;
-  text-align: left;
+.bookshelf-title h1 {
+  font-weight: 400;
+  user-select: none;
+}
+.bookshelf-title h1:hover {
+  opacity: 0.6;
+}
+
+.open-search {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary-color) url('../icons/add.svg') no-repeat center;
+  background-size: 28px;
+  outline: none;
+}
+.open-search:hover, .open-search:focus {
+  transform: rotateZ(90deg);
 }

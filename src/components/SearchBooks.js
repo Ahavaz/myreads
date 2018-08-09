@@ -36,28 +36,13 @@ class SearchBooks extends Component {
     }
   }
 
-  clearQuery = () => {
-    this.setState({ query: '' })
-  }
-
   render() {
     const { query, books } = this.state
     const { onUpdateBookShelf } = this.props
 
-    // if (query) {
-    //   const match = new RegExp(escapeRegEx(query), 'i')
-    //   showingBooks = this.props.books.filter(
-    //     book => match.test(book.title) || book.authors.filter(author => match.test(author)).length !== 0
-    //   )
-    // }
-
     return (
       <div className="search-books">
-        <SearchBar
-          query={query}
-          onUpdateQuery={this.updateQuery}
-          onClearQuery={this.clearQuery}
-        />
+        <SearchBar query={query} onUpdateQuery={this.updateQuery} />
         {books.error ? (
           <div className="search-books-empty">
             <h1>Sorry, no matches found :|</h1>

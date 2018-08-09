@@ -1,0 +1,19 @@
+.book-rating {
+  height: 20px;
+  margin: 10px 0;
+  font-size: 0.8em;
+}
+.book-rating * {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+.book-rating-star {
+  background: url('../icons/star.svg') no-repeat center;
+}
+.book-rating-star-half {
+  background: url('../icons/star-half.svg') no-repeat center;
+}
+.book-rating-star-border {
+  background: url('../icons/star-border.svg') no-repeat center;
+}

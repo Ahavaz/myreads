@@ -17,14 +17,14 @@ const buttons = [
   }
 ]
 
-const ChangeShelf = props => (
+const ChangeShelf = ({ shelf, onShowShelf }) => (
   <div className="change-shelf">
     {buttons.map(button => (
       <button
         key={button.value}
         value={button.value}
-        className={button.value === props.shelf ? 'selected' : ''}
-        onClick={e => props.onShowShelf(e.target.value)}
+        className={button.value === shelf && 'selected'}
+        onClick={e => onShowShelf(e.target.value)}
       >
         {button.text}
       </button>
@@ -33,8 +33,8 @@ const ChangeShelf = props => (
 )
 
 ChangeShelf.propTypes = {
-  onShowShelf: PropTypes.func.isRequired,
-  shelf: PropTypes.string.isRequired
+  shelf: PropTypes.string.isRequired,
+  onShowShelf: PropTypes.func.isRequired
 }
 
 export default ChangeShelf

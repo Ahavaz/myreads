@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import './Bookshelf.css'
 import Book from './Book'
 
-const Bookshelf = props => (
+const Bookshelf = ({ books, onUpdateBookShelf }) => (
   <div className="bookshelf">
     <ol className="books-grid">
-      {props.books.map(book => (
+      {books.map(book => (
         <li key={book.id}>
           <Book
             id={book.id}
@@ -15,7 +15,7 @@ const Bookshelf = props => (
             image={book.imageLinks}
             authors={book.authors}
             rating={book.averageRating}
-            onUpdateBookShelf={props.onUpdateBookShelf}
+            onUpdateBookShelf={onUpdateBookShelf}
           />
         </li>
       ))}

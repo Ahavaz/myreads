@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import { DebounceInput } from 'react-debounce-input'
 import './SearchBar.css'
 
-const SearchBar = props => {
+const SearchBar = ({ query, onUpdateQuery }) => {
   const searchInput = React.createRef()
 
   const clearSearch = () => {
     searchInput.current.focus()
-    props.onUpdateQuery('')
+    onUpdateQuery('')
   }
 
   return (
@@ -20,14 +20,14 @@ const SearchBar = props => {
         className="search-input"
         type="text"
         placeholder="Search by title or author"
-        value={props.query}
-        onChange={e => props.onUpdateQuery(e.target.value)}
+        value={query}
+        onChange={e => onUpdateQuery(e.target.value)}
         debounceTimeout={300}
         autoFocus
       />
       <button
-        disabled={!props.query}
-        className={props.query ? 'clear-search' : 'clear-search hidden'}
+        disabled={!query}
+        className={query ? 'clear-search' : 'clear-search hidden'}
         onClick={clearSearch}
       />
     </div>

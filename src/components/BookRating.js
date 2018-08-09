@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './BookRating.css'
 
-const BookRating = props => (
+const BookRating = ({ rating }) => (
   <div className="book-rating">
     {Array(5)
       .fill()
@@ -10,24 +10,15 @@ const BookRating = props => (
         <span
           key={`star-${index + 1}`}
           className={
-            index < Math.floor(props.rating)
+            index < Math.floor(rating)
               ? 'book-rating-star'
-              : index < props.rating
+              : index < rating
                 ? 'book-rating-star-half'
                 : 'book-rating-star-border'
           }
         />
       ))}
   </div>
-  // <div className="book-rating">
-  //   {Array(Math.floor(props.rating)).fill(
-  //     <span className="book-rating-star" />
-  //   )}
-  //   {props.rating % 1 ? <span className="book-rating-star-half" /> : null}
-  //   {Array(Math.floor(5 - props.rating)).fill(
-  //     <span className="book-rating-star-border" />
-  //   )}
-  // </div>
 )
 
 BookRating.propTypes = {

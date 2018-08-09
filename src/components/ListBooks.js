@@ -5,16 +5,16 @@ import './ListBooks.css'
 import Bookshelf from './Bookshelf'
 import ChangeShelf from './ChangeShelf'
 
-const ListBooks = props => (
+const ListBooks = ({ books, shelf, onShowShelf, onUpdateBookShelf }) => (
   <div className="list-books">
     <header className="list-books-title">
       <h1>MyReads</h1>
     </header>
     <Bookshelf
-      books={props.books.filter(book => book.shelf === props.shelf)}
-      onUpdateBookShelf={props.onUpdateBookShelf}
+      books={books.filter(book => book.shelf === shelf)}
+      onUpdateBookShelf={onUpdateBookShelf}
     />
-    <ChangeShelf shelf={props.shelf} onShowShelf={props.onShowShelf} />
+    <ChangeShelf shelf={shelf} onShowShelf={onShowShelf} />
     <Link to="/search" className="open-search" />
   </div>
 )
@@ -22,8 +22,8 @@ const ListBooks = props => (
 ListBooks.propTypes = {
   books: PropTypes.array.isRequired,
   shelf: PropTypes.string.isRequired,
-  onUpdateBookShelf: PropTypes.func.isRequired,
-  onShowShelf: PropTypes.func.isRequired
+  onShowShelf: PropTypes.func.isRequired,
+  onUpdateBookShelf: PropTypes.func.isRequired
 }
 
 export default ListBooks

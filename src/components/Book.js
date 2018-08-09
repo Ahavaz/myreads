@@ -4,21 +4,29 @@ import './Book.css'
 import brokenImageIcon from '../icons/broken-img.svg'
 import BookRating from './BookRating'
 
-const Book = props => (
+const Book = ({
+  id,
+  title,
+  shelf,
+  image,
+  authors,
+  rating,
+  onUpdateBookShelf
+}) => (
   <div className="book">
     <div className="book-top">
       <div
         className="book-cover"
         style={{
-          background: `var(--primary-light-color) url(${props.image.thumbnail ||
-            props.image}) no-repeat center`,
-          backgroundSize: `${props.image.thumbnail ? 'cover' : 'contain'}`
+          background: `var(--primary-light-color) url(${image.thumbnail ||
+            image}) no-repeat center`,
+          backgroundSize: `${image.thumbnail ? 'cover' : 'contain'}`
         }}
       />
       <div className="book-shelf-changer">
         <select
-          value={props.shelf}
-          onChange={e => props.onUpdateBookShelf(props, e.target.value)}
+          value={shelf}
+          onChange={e => onUpdateBookShelf(id, e.target.value)}
         >
           <option disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
@@ -28,9 +36,9 @@ const Book = props => (
         </select>
       </div>
     </div>
-    <BookRating rating={props.rating} />
-    <div className="book-title">{props.title}</div>
-    <div className="book-authors">{props.authors.join(', ')}</div>
+    <BookRating rating={rating} />
+    <div className="book-title">{title}</div>
+    <div className="book-authors">{authors.join(', ')}</div>
   </div>
 )
 

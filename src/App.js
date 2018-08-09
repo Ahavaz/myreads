@@ -64,8 +64,8 @@ class App extends Component {
             <ListBooks
               books={books}
               shelf={shelf}
-              onUpdateBookShelf={this.updateBookShelf}
               onShowShelf={this.showShelf}
+              onUpdateBookShelf={this.updateBookShelf}
             />
           )}
         />
@@ -73,7 +73,7 @@ class App extends Component {
           path="/search"
           render={() => (
             <SearchBooks
-              // books={books.filter(book => book.shelf === 'none')}
+              books={books}
               onUpdateBookShelf={this.updateBookShelf}
             />
           )}

@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import sortBy from 'sort-by'
-import * as BooksAPI from './utils/BooksAPI'
 import './App.css'
+import * as BooksAPI from './utils/BooksAPI'
 import SearchBooks from './components/SearchBooks'
-import Bookshelf from './components/Bookshelf'
-import ChangeShelf from './components/ChangeShelf'
+import ListBooks from './components/ListBooks'
 
-class BooksApp extends React.Component {
+class App extends Component {
   state = {
     /**
      * TODO: Instead of using this state variable to keep track of which page
@@ -14,88 +14,73 @@ class BooksApp extends React.Component {
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-    showSearch: false,
     books: [],
     shelf: 'currentlyReading'
   }
 
   componentDidMount() {
+    this.fetchBooks()
+  }
+
+  fetchBooks = () => {
     BooksAPI.getAll()
-      .then(books => {
-        this.setState({ books })
-      })
-      .then(() => this.updateBookShelf('none'))
+      .then(books => this.setState({ books }))
+      .then(() => console.log('BOOKS', this.state.books))
   }
 
-  updateBookShelf = (shelf, id) => {
-    if (id) {
-      this.setState(state => ({
-        books: state.books.map(book => {
-          if (book.id === id) {
-            return { ...book, shelf }
-          }
-          return { ...book }
-        })
-      }))
-    } else {
-      this.setState(state => ({
-        books: state.books.map(book => ({ ...book, shelf }))
-      }))
-    }
-  }
-
-  changePage = () => {
-    this.setState(state => ({
-      showSearch: !state.showSearch
-    }))
+  updateBookShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(() => this.fetchBooks())
+    // if (id) {
+    //   this.setState(state => ({
+    //     books: state.books.map(book => {
+    //       if (book.id === id) {
+    //         return { ...book, shelf }
+    //       }
+    //       return { ...book }
+    //     })
+    //   }))
+    // } else {
+    //   this.setState(state => ({
+    //     books: state.books.map(book => ({ ...book, shelf }))
+    //   }))
+    // }
   }
 
   showShelf = shelf => {
     this.setState({ shelf })
   }
 
-  selectShelf = shelf => {
-    let el = document.querySelector('.change-shelf button.selected')
-    if (el) el.classList.remove('selected')
-    el = document.querySelector(`.change-shelf button[value=${shelf}]`)
-    if (el) el.classList.add('selected')
-    console.log(el)
-  }
-
   render() {
-    const { showSearch, books, shelf } = this.state
-
-    setTimeout(() => {
-      this.selectShelf(shelf)
-    }, 50)
+    const { books, shelf } = this.state
 
     books.sort(sortBy('title'))
 
     return (
-      <div className="app">
-        {showSearch ? (
-          <SearchBooks
-            onChangePage={this.changePage}
-            books={books.filter(book => book.shelf === 'none')}
-            onUpdateBookShelf={this.updateBookShelf}
-          />
-        ) : (
-          <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
-            <div className="list-books-content">
-              <Bookshelf books={books.filter(book => book.shelf === shelf)} onUpdateBookShelf={this.updateBookShelf} />
-            </div>
-            <ChangeShelf onShowShelf={this.showShelf} />
-            <div className="open-search">
-              <button onClick={this.changePage}>Add a book</button>
-            </div>
-          </div>
-        )}
+      <div className="books-app">
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <ListBooks
+              books={books}
+              shelf={shelf}
+              onUpdateBookShelf={this.updateBookShelf}
+              onShowShelf={this.showShelf}
+            />
+          )}
+        />
+        <Route
+          path="/search"
+          render={() => (
+            <SearchBooks
+              // books={books.filter(book => book.shelf === 'none')}
+              onUpdateBookShelf={this.updateBookShelf}
+            />
+          )}
+        />
       </div>
     )
   }
 }
 
-export default BooksApp
+export default App

@@ -33,21 +33,20 @@
 .clear-search {
   position: fixed;
   top: 0px;
-  right: -53px;
+  right: 0px;
   width: 53px;
   height: 53px;
-  background: transparent url('../icons/close.svg') no-repeat center center;
+  background: transparent url('../icons/close.svg') no-repeat center;
   background-size: 28px;
   border-radius: 50%;
   border: none;
   outline: none;
   cursor: pointer;
-  transform: rotateZ(45deg);
 }
-.clear-search.visible {
-  right: 0px;
-  transform: rotateZ(0deg);
-}
-.clear-search.visible:hover, .clear-search.visible:focus {
+.clear-search:hover, .clear-search:focus {
   transform: rotateZ(90deg);
+}
+.clear-search.hidden {
+  right: -53px;
+  transform: rotateZ(45deg);
 }

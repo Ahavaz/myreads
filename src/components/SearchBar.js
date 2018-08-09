@@ -14,19 +14,19 @@ const SearchBar = props => (
       value={props.query}
       onChange={e => props.onUpdateQuery(e.target.value)}
       debounceTimeout={300}
+      autoFocus
     />
     <button
       disabled={!props.query}
-      className={props.query ? 'clear-search visible' : 'clear-search'}
-      onClick={props.onClearQuery}
+      className={props.query ? 'clear-search' : 'clear-search hidden'}
+      onClick={() => props.onUpdateQuery('')}
     />
   </div>
 )
 
 SearchBar.propTypes = {
   query: PropTypes.string.isRequired,
-  onUpdateQuery: PropTypes.func.isRequired,
-  onClearQuery: PropTypes.func.isRequired
+  onUpdateQuery: PropTypes.func.isRequired
 }
 
 export default SearchBar

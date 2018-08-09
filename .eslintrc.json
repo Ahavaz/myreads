@@ -51,6 +51,12 @@
         "printWidth": "80"
       }
     ],
+    "jsx-a11y/no-autofocus": [
+      0,
+      {
+        "ignoreNonDOM": false
+      }
+    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {

@@ -81,6 +81,7 @@ class App extends Component {
               shelf={shelf}
               onShowShelf={this.showShelf}
               onUpdateBookShelf={this.updateBookShelf}
+              onUpdateQuery={this.updateQuery}
             />
           )}
         />

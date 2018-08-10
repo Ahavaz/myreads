@@ -11,19 +11,23 @@ class App extends Component {
     books: [],
     shelf: 'currentlyReading',
     query: '',
-    searchedBooks: []
+    searchedBooks: [],
+    loading: true
   }
 
   componentDidMount() {
     this.fetchBooks()
   }
 
-  fetchBooks = () =>
+  fetchBooks = () => {
+    this.setState({ loading: true })
     BooksAPI.getAll()
-      .then(books => this.setState({ books }))
+      .then(books => this.setState({ books, loading: false }))
       .then(() => console.log('BOOKSHELF', this.state.books))
+  }
 
-  fetchSearchBooks = query =>
+  fetchSearchBooks = query => {
+    this.setState({ loading: true })
     BooksAPI.search(query)
       .then(
         searchedBooks =>
@@ -32,6 +36,7 @@ class App extends Component {
       .then(() =>
         console.log('BOOKS SEARCHED', query, this.state.searchedBooks)
       )
+  }
 
   syncBookState = searchedBooks =>
     this.setState({
@@ -42,7 +47,8 @@ class App extends Component {
             book => book.id === searchedBook.id
           )
           return match.length ? match[0] : { ...searchedBook, shelf: 'none' }
-        })
+        }),
+      loading: false
     })
 
   updateBookShelf = (bookId, shelf) =>
@@ -65,7 +71,7 @@ class App extends Component {
   showShelf = shelf => this.setState({ shelf })
 
   render() {
-    const { books, shelf, query, searchedBooks } = this.state
+    const { books, shelf, query, searchedBooks, loading } = this.state
 
     books.sort(sortBy('title'))
     if (!searchedBooks.error) searchedBooks.sort(sortBy('title'))
@@ -82,6 +88,7 @@ class App extends Component {
               onShowShelf={this.showShelf}
               onUpdateBookShelf={this.updateBookShelf}
               onUpdateQuery={this.updateQuery}
+              loading={loading}
             />
           )}
         />
@@ -93,6 +100,7 @@ class App extends Component {
               searchedBooks={searchedBooks}
               onUpdateQuery={this.updateQuery}
               onUpdateBookShelf={this.updateBookShelf}
+              loading={loading}
             />
           )}
         />

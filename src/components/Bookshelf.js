@@ -8,6 +8,7 @@ import ChangeShelf from './ChangeShelf'
 const Bookshelf = ({
   books,
   shelf,
+  loading,
   onShowShelf,
   onUpdateBookShelf,
   onUpdateQuery
@@ -19,6 +20,7 @@ const Bookshelf = ({
     <ListBooks
       books={books.filter(book => book.shelf === shelf)}
       onUpdateBookShelf={onUpdateBookShelf}
+      loading={loading}
     />
     <ChangeShelf shelf={shelf} onShowShelf={onShowShelf} />
     <Link
@@ -32,6 +34,7 @@ const Bookshelf = ({
 Bookshelf.propTypes = {
   books: PropTypes.array.isRequired,
   shelf: PropTypes.string.isRequired,
+  loading: PropTypes.bool.isRequired,
   onShowShelf: PropTypes.func.isRequired,
   onUpdateBookShelf: PropTypes.func.isRequired,
   onUpdateQuery: PropTypes.func.isRequired

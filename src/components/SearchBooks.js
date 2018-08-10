@@ -7,6 +7,7 @@ import SearchBar from './SearchBar'
 const SearchBooks = ({
   query,
   searchedBooks,
+  loading,
   onUpdateQuery,
   onUpdateBookShelf
 }) => (
@@ -17,7 +18,11 @@ const SearchBooks = ({
         <h1>Sorry, no matches found :|</h1>
       </div>
     ) : query ? (
-      <ListBooks books={searchedBooks} onUpdateBookShelf={onUpdateBookShelf} />
+      <ListBooks
+        books={searchedBooks}
+        onUpdateBookShelf={onUpdateBookShelf}
+        loading={loading}
+      />
     ) : (
       <div className="search-books-empty">
         <h1>Type something above to start searching for books</h1>
@@ -29,6 +34,7 @@ const SearchBooks = ({
 SearchBooks.propTypes = {
   query: PropTypes.string.isRequired,
   searchedBooks: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
   onUpdateQuery: PropTypes.func.isRequired,
   onUpdateBookShelf: PropTypes.func.isRequired
 }

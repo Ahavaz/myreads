@@ -23,7 +23,7 @@ const ChangeShelf = ({ shelf, onShowShelf }) => (
       <button
         key={button.value}
         value={button.value}
-        className={button.value === shelf && 'selected'}
+        className={button.value === shelf ? 'selected' : undefined}
         onClick={e => onShowShelf(e.target.value)}
       >
         {button.text}

@@ -16,11 +16,15 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchBooks()
+    this.fetchBooks(true)
   }
 
-  fetchBooks = () => {
-    this.setState({ loading: true })
+  componentDidUpdate = (prevProps, prevState) =>
+    this.state.books !== prevState.books &&
+    this.syncBookState(this.state.searchedBooks)
+
+  fetchBooks = loading => {
+    this.setState({ loading })
     BooksAPI.getAll()
       .then(books => this.setState({ books, loading: false }))
       .then(() => console.log('BOOKSHELF', this.state.books))
@@ -38,6 +42,9 @@ class App extends Component {
       )
   }
 
+  updateBookShelf = (bookId, shelf) =>
+    BooksAPI.update(bookId, shelf).then(() => this.fetchBooks(false))
+
   syncBookState = searchedBooks =>
     this.setState({
       searchedBooks:
@@ -51,13 +58,6 @@ class App extends Component {
       loading: false
     })
 
-  updateBookShelf = (bookId, shelf) =>
-    BooksAPI.update(bookId, shelf)
-      .then(() => this.fetchBooks())
-      .then(() => this.syncBookState(this.state.searchedBooks))
-
-  formatQuery = query => query.trimStart().replace(/\s+/g, ' ')
-
   updateQuery = query => {
     query = this.formatQuery(query)
     this.setState({ query })
@@ -67,6 +67,8 @@ class App extends Component {
       this.setState({ searchedBooks: [] })
     }
   }
+
+  formatQuery = query => query.trimStart().replace(/\s+/g, ' ')
 
   showShelf = shelf => this.setState({ shelf })
 

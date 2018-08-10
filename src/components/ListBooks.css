@@ -19,3 +19,12 @@
   padding: 10px 15px;
   text-align: left;
 }
+
+.shelf-empty {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-color);
+}

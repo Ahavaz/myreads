@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import sortBy from 'sort-by'
 import './App.css'
 import * as BooksAPI from './utils/BooksAPI'
@@ -106,6 +108,7 @@ class App extends Component {
             />
           )}
         />
+        <ToastContainer autoClose={3500} newestOnTop pauseOnHover={false} />
       </div>
     )
   }

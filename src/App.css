@@ -4,9 +4,12 @@ html, body, #root, .books-app {
   /* Colors */
   --primary-color: #071013;
   --secondary-color: #5BC8AF;
-  /* --tertiary-color: #33658A; */
   --primary-light-color: #607466;
   --secondary-light-color: #56E39F;
+  --toast-info-color: #33658A;
+  --toast-error-color: #BA2D0B;
+  /* --toast-success-color: #3C9918; */
+  /* --toast-warning-color: #FC9F5B; */
   
   /* Box Shadows */
   --button-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

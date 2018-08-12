@@ -34,11 +34,7 @@
   border-radius: 50%;
   background: var(--primary-color) url('../icons/arrow-drop-down.svg') no-repeat center;
   background-size: 20px;
-  /* box-shadow: var(--button-box-shadow); */
-}
-.book-shelf-changer:hover, .book-shelf-changer:focus {
-  /* transform: rotateZ(180deg); */
-  /* box-shadow: var(--button-box-shadow-active); */
+  box-shadow: var(--button-box-shadow);
 }
 .book-shelf-changer select {
   width: 100%;
@@ -46,18 +42,18 @@
   border-radius: 50%;
   opacity: 0;
   cursor: pointer;
-  /* border: none; */
-  /* outline: none; */
-  /* appearance: none; */
-  /* display: none; */
 }
 .book-shelf-changer select:focus, .book-shelf-changer select option:focus {
   box-shadow: var(--button-box-shadow-active);
 }
-/* .book-shelf-changer select:active {
-  transform: rotateZ(180deg);
-} */
 .book-shelf-changer select {
   color: var(--secondary-color);
   background: var(--primary-color);
+}
+
+.toast-move-book {
+  background: var(--toast-info-color);
+}
+.toast-remove-book {
+  background:var(--toast-error-color);
 }

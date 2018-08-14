@@ -20,9 +20,9 @@ const ListBooks = ({ books, loading, onUpdateBookShelf }) => (
               id={book.id}
               title={book.title}
               shelf={book.shelf}
-              image={book.imageLinks}
-              authors={book.authors}
-              rating={book.averageRating}
+              image={book.imageLinks || undefined}
+              authors={book.authors || undefined}
+              rating={book.averageRating || undefined}
               onUpdateBookShelf={onUpdateBookShelf}
             />
           </li>

@@ -14,17 +14,24 @@ const Book = ({
   rating,
   onUpdateBookShelf
 }) => {
-  const handleChange = (shelfValue, shelfText) => {
-    onUpdateBookShelf(id, shelfValue)
+  const notify = shelfText =>
     toast.info(
-      shelfValue !== 'none'
-        ? `Moving book to "${shelfText}"...`
-        : `Removing book from bookshelf...`,
+      shelfText !== 'None' ? (
+        <span>
+          Moving book to <i>{shelfText}</i>...
+        </span>
+      ) : (
+        `Removing book from bookshelf...`
+      ),
       {
         className:
-          shelfValue !== 'none' ? 'toast-move-book' : 'toast-remove-book'
+          shelfText !== 'None' ? 'toast-move-book' : 'toast-remove-book'
       }
     )
+
+  const handleChange = (shelfValue, shelfText) => {
+    onUpdateBookShelf(id, shelfValue)
+    notify(shelfText)
   }
 
   return (

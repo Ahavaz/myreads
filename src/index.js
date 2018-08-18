@@ -6,7 +6,7 @@ import { ApolloClient } from 'apollo-client'
 import { RestLink } from 'apollo-link-rest'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import App from './App'
+import App from './components/App'
 import './index.css'
 
 const authLink = setContext((_, { headers }) => {
@@ -24,7 +24,7 @@ const authLink = setContext((_, { headers }) => {
 })
 
 const restLink = new RestLink({
-  uri: 'https://reactnd-books-api.udacity.com', // this is your API base url
+  uri: 'https://reactnd-books-api.udacity.com',
   credentials: 'same-origin'
 })
 

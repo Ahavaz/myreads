@@ -5,9 +5,9 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import sortBy from 'sort-by'
 import './App.css'
-import { GET_BOOKS, UPDATE_BOOKS } from './utils/Queries.graphql'
-import Bookshelf from './components/Bookshelf'
-import SearchBooks from './components/SearchBooks'
+import { GET_BOOKS, UPDATE_BOOKS } from '../utils/Queries.graphql'
+import Bookshelf from './Bookshelf'
+import SearchBooks from './SearchBooks'
 
 class App extends Component {
   static getDerivedStateFromProps(

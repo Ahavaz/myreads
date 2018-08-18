@@ -44,7 +44,8 @@
       color_function: false,
       stroke_width: 1.51,
       seed: null
-    });
+    })
+
     document.body.appendChild(pattern.canvas())
     window.addEventListener('resize', () => {
       pattern = Trianglify({
@@ -59,11 +60,12 @@
         color_function: false,
         stroke_width: 1.51,
         seed: null
-      });
+      })
+
       let canvas = document.querySelector('canvas')
       canvas.parentNode.removeChild(canvas)
       document.body.appendChild(pattern.canvas())
-    });
+    })
   </script>
 </body>
 

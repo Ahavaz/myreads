@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
 import PropTypes from 'prop-types'
+import sortBy from 'sort-by'
 import './SearchBooks.css'
 import { SEARCH_BOOKS } from '../utils/Queries.graphql'
 import ListBooks from './ListBooks'
@@ -53,14 +54,16 @@ class SearchBooks extends Component {
       searchedBooks:
         searchedBooks.id === null
           ? null
-          : searchedBooks.map(searchedBook => {
-              const match = this.props.books.filter(
-                book => book.id === searchedBook.id
-              )
-              return match.length
-                ? match[0]
-                : { ...searchedBook, shelf: 'none' }
-            })
+          : searchedBooks
+              .map(searchedBook => {
+                const match = this.props.books.filter(
+                  book => book.id === searchedBook.id
+                )
+                return match.length
+                  ? match[0]
+                  : { ...searchedBook, shelf: 'none' }
+              })
+              .sort(sortBy('title'))
     })
     setTimeout(() => this.setState({ loading: false }), 1000)
   }

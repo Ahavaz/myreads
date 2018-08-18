@@ -40,9 +40,8 @@ const Book = ({
         <div
           className="book-cover"
           style={{
-            background: `var(--primary-light-color) url(${image.thumbnail ||
-              image}) no-repeat center`,
-            backgroundSize: `${image.thumbnail ? 'cover' : 'contain'}`
+            background: `var(--primary-light-color) url(${image}) no-repeat center`,
+            backgroundSize: `${image !== brokenImageIcon ? 'cover' : 'contain'}`
           }}
         />
         <div className="book-shelf-changer">
@@ -71,19 +70,16 @@ const Book = ({
 }
 
 Book.defaultProps = {
-  shelf: 'none',
-  image: brokenImageIcon,
-  authors: [],
-  rating: 0
+  image: brokenImageIcon
 }
 
 Book.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  shelf: PropTypes.string,
-  image: PropTypes.object,
-  authors: PropTypes.array,
-  rating: PropTypes.number,
+  shelf: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  authors: PropTypes.array.isRequired,
+  rating: PropTypes.number.isRequired,
   onUpdateBookShelf: PropTypes.func.isRequired
 }
 

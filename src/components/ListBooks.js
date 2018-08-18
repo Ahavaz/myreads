@@ -19,10 +19,12 @@ const ListBooks = ({ books, loading, onUpdateBookShelf }) => (
             <Book
               id={book.id}
               title={book.title}
-              shelf={book.shelf}
-              image={book.imageLinks || undefined}
-              authors={book.authors || undefined}
-              rating={book.averageRating || undefined}
+              shelf={book.shelf || 'none'}
+              image={
+                (book.imageLinks && book.imageLinks.thumbnail) || undefined
+              }
+              authors={book.authors || []}
+              rating={book.averageRating || 0}
               onUpdateBookShelf={onUpdateBookShelf}
             />
           </li>

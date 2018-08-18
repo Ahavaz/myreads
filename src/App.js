@@ -1,84 +1,49 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import { graphql, compose } from 'react-apollo'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import sortBy from 'sort-by'
 import './App.css'
-import * as BooksAPI from './utils/BooksAPI'
+import { GET_BOOKS, UPDATE_BOOKS } from './utils/Queries.graphql'
 import Bookshelf from './components/Bookshelf'
 import SearchBooks from './components/SearchBooks'
 
 class App extends Component {
+  static getDerivedStateFromProps(
+    {
+      getBooks: { data, loading }
+    },
+    state
+  ) {
+    if (data && data.books) {
+      if (data.books !== state.books) {
+        return {
+          books: [...data.books].sort(sortBy('title')),
+          loading
+        }
+      }
+    }
+    return null
+  }
+
   state = {
     books: [],
-    shelf: 'currentlyReading',
-    query: '',
-    searchedBooks: [],
     loading: true
   }
 
-  componentDidMount() {
-    this.fetchBooks(true)
-  }
-
   componentDidUpdate = (prevProps, prevState) =>
-    this.state.books !== prevState.books &&
-    this.syncBookState(this.state.searchedBooks)
-
-  fetchBooks = loading => {
-    this.setState({ loading })
-    BooksAPI.getAll()
-      .then(books => this.setState({ books, loading: false }))
-      .then(() => console.log('BOOKSHELF', this.state.books))
-  }
-
-  fetchSearchBooks = query => {
-    this.setState({ loading: true })
-    BooksAPI.search(query)
-      .then(
-        searchedBooks =>
-          query === this.state.query.trim() && this.syncBookState(searchedBooks)
-      )
-      .then(() =>
-        console.log('BOOKS SEARCHED', query, this.state.searchedBooks)
-      )
-  }
+    this.state.books !== prevState.books && this.props.getBooks.refetch()
 
   updateBookShelf = (bookId, shelf) =>
-    BooksAPI.update(bookId, shelf).then(() => this.fetchBooks(false))
-
-  syncBookState = searchedBooks =>
-    this.setState({
-      searchedBooks:
-        (searchedBooks.error && searchedBooks) ||
-        searchedBooks.map(searchedBook => {
-          const match = this.state.books.filter(
-            book => book.id === searchedBook.id
-          )
-          return match.length ? match[0] : { ...searchedBook, shelf: 'none' }
-        }),
-      loading: false
-    })
-
-  updateQuery = query => {
-    query = this.formatQuery(query)
-    this.setState({ query })
-    if (query) {
-      this.fetchSearchBooks(query.trim())
-    } else {
-      this.setState({ searchedBooks: [] })
-    }
-  }
-
-  formatQuery = query => query.trimStart().replace(/\s+/g, ' ')
-
-  showShelf = shelf => this.setState({ shelf })
+    this.props
+      .updateBooks({
+        variables: { id: bookId, input: { shelf } }
+      })
+      .then(() => this.props.getBooks.refetch())
 
   render() {
-    const { books, shelf, query, searchedBooks, loading } = this.state
-
-    books.sort(sortBy('title'))
-    if (!searchedBooks.error) searchedBooks.sort(sortBy('title'))
+    const { books, loading } = this.state
 
     return (
       <div className="books-app">
@@ -88,10 +53,7 @@ class App extends Component {
           render={() => (
             <Bookshelf
               books={books}
-              shelf={shelf}
-              onShowShelf={this.showShelf}
               onUpdateBookShelf={this.updateBookShelf}
-              onUpdateQuery={this.updateQuery}
               loading={loading}
             />
           )}
@@ -100,11 +62,8 @@ class App extends Component {
           path="/search"
           render={() => (
             <SearchBooks
-              query={query}
-              searchedBooks={searchedBooks}
-              onUpdateQuery={this.updateQuery}
+              books={books}
               onUpdateBookShelf={this.updateBookShelf}
-              loading={loading}
             />
           )}
         />
@@ -114,4 +73,7 @@ class App extends Component {
   }
 }
 
-export default App
+export default compose(
+  graphql(GET_BOOKS, { name: 'getBooks' }),
+  graphql(UPDATE_BOOKS, { name: 'updateBooks' })
+)(App)

@@ -10,7 +10,8 @@ import SearchBar from './SearchBar'
 class SearchBooks extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
-    onUpdateBookShelf: PropTypes.func.isRequired
+    onUpdateBookShelf: PropTypes.func.isRequired,
+    searchBooks: PropTypes.func.isRequired
   }
 
   state = {
@@ -52,7 +53,7 @@ class SearchBooks extends Component {
   syncBookState = searchedBooks => {
     this.setState({
       searchedBooks:
-        searchedBooks.id === null
+        searchedBooks === null || searchedBooks.id === null
           ? null
           : searchedBooks
               .map(searchedBook => {

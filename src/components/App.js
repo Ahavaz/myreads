@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
+import PropTypes from 'prop-types'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import sortBy from 'sort-by'
@@ -25,6 +26,11 @@ class App extends Component {
       }
     }
     return null
+  }
+
+  static propTypes = {
+    getBooks: PropTypes.object.isRequired,
+    updateBooks: PropTypes.func.isRequired
   }
 
   state = {

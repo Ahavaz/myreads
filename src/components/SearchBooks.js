@@ -6,6 +6,7 @@ import './SearchBooks.css'
 import { SEARCH_BOOKS } from '../utils/Queries.graphql'
 import ListBooks from './ListBooks'
 import SearchBar from './SearchBar'
+import Loader from './Loader'
 
 class SearchBooks extends Component {
   static propTypes = {
@@ -17,7 +18,7 @@ class SearchBooks extends Component {
   state = {
     query: '',
     searchedBooks: [],
-    loading: true
+    loading: false
   }
 
   componentDidUpdate = prevProps =>
@@ -28,11 +29,11 @@ class SearchBooks extends Component {
 
   updateQuery = query => {
     query = this.formatQuery(query)
-    this.setState({ query, loading: true })
+    this.setState({ query, searchedBooks: [], loading: true })
     if (query) {
       this.searchBooks(query.trim())
     } else {
-      this.setState({ searchedBooks: [] })
+      this.setState({ searchedBooks: [], loading: false })
     }
   }
 
@@ -76,7 +77,9 @@ class SearchBooks extends Component {
     return (
       <div className="search-books">
         <SearchBar query={query} onUpdateQuery={this.updateQuery} />
-        {searchedBooks === null ? (
+        {loading ? (
+          <Loader />
+        ) : searchedBooks === null ? (
           <div className="search-books-empty">
             <h1>Sorry, no matches found :|</h1>
           </div>
@@ -84,7 +87,7 @@ class SearchBooks extends Component {
           <ListBooks
             books={searchedBooks}
             onUpdateBookShelf={onUpdateBookShelf}
-            loading={loading}
+            loading={false}
           />
         ) : (
           <div className="search-books-empty">

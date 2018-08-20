@@ -30,11 +30,11 @@ The file `BooksAPI.js` has been replaced by [`Queries.graphql.js`](src/utils/Que
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which are listed below. These are the _only_ terms that will work with the backend.
 
 ```
-'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 
-'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 
-'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 
-'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 
-'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 
+'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat',    |
+'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 
+'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 
+'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 
+'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 
 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 
 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 
 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 
@@ -43,10 +43,8 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 ## Tech Stack
 
--|-|-
-:---:|:---:|:---:|
-<img src="https://cdn.svgporn.com/logos/apollostack.svg" alt="Apollo" title="Apollo" height="50px"/><br>**Apollo**|<img src="https://cdn.svgporn.com/logos/babel.svg" alt="Babel" title="Babel" height="50px"/><br>**Babel**|<img src="https://cdn.svgporn.com/logos/css-3.svg" alt="CSS3" title="CSS3" height="50px"/><br>**CSS3**
-<img src="https://cdn.svgporn.com/logos/eslint.svg" alt="ESlint" title="ESlint" height="50px"/><br>**ESlint**|<img src="https://cdn.svgporn.com/logos/font-awesome.svg" alt="Font Awesome" title="Font Awesome" height="50px"/><br>**Font Awesome**|<img src="https://cdn.svgporn.com/logos/graphql.svg" alt="GraphQL" title="GraphQL" height="50px"/><br>**GraphQL**
-<img src="https://cdn.svgporn.com/logos/html-5.svg" alt="HTML5" title="HTML5" height="50px"/><br>**HTML5**|<img src="https://cdn.svgporn.com/logos/javascript.svg" alt="JavaScript" title="JavaScript" height="50px"/><br>**JavaScript**|<img src="https://cdn.svgporn.com/logos/prettier.svg" alt="Prettier" title="Prettier" height="50px"/><br>**Prettier**
-<img src="https://cdn.svgporn.com/logos/react.svg" alt="React" title="React" height="50px"/><br>**React**|<img src="https://cdn.svgporn.com/logos/react-router.svg" alt="React Router" title="React Router" height="50px"/><br>**React Router**|<img src="https://cdn.svgporn.com/logos/svg.svg" alt="SVG" title="SVG" height="50px"/><br>**SVG**
-<img src="https://cdn.svgporn.com/logos/webpack.svg" alt="Webpack" title="Webpack" height="50px"/><br>**Webpack**||
+||||||
+:---:|:---:|:---:|:---:|:---:
+<img src="https://cdn.svgporn.com/logos/apollostack.svg" alt="Apollo" title="Apollo" height="50px"/><br>**Apollo**|<img src="https://cdn.svgporn.com/logos/autoprefixer.svg" alt="Autoprefixer" title="Autoprefixer" height="50px"/><br>**Autoprefixer**|<img src="https://cdn.svgporn.com/logos/babel.svg" alt="Babel" title="Babel" height="50px"/><br>**Babel**|<img src="https://cdn.svgporn.com/logos/css-3.svg" alt="CSS3" title="CSS3" height="50px"/><br>**CSS3**|<img src="https://cdn.svgporn.com/logos/eslint.svg" alt="ESlint" title="ESlint" height="50px"/><br>**ESlint**
+<img src="https://cdn.svgporn.com/logos/font-awesome.svg" alt="Font Awesome" title="Font Awesome" height="50px"/><br>**Font Awesome**|<img src="https://cdn.svgporn.com/logos/graphql.svg" alt="GraphQL" title="GraphQL" height="50px"/><br>**GraphQL**|<img src="https://cdn.svgporn.com/logos/html-5.svg" alt="HTML5" title="HTML5" height="50px"/><br>**HTML5**|<img src="https://cdn.svgporn.com/logos/javascript.svg" alt="JavaScript" title="JavaScript" height="50px"/><br>**JavaScript**|<img src="https://cdn.svgporn.com/logos/prettier.svg" alt="Prettier" title="Prettier" height="50px"/><br>**Prettier**
+<img src="https://cdn.svgporn.com/logos/react.svg" alt="React" title="React" height="50px"/><br>**React**|<img src="https://cdn.svgporn.com/logos/react-router.svg" alt="React Router" title="React Router" height="50px"/><br>**React Router**|<img src="https://cdn.svgporn.com/logos/svg.svg" alt="SVG" title="SVG" height="50px"/><br>**SVG**|<img src="https://cdn.svgporn.com/logos/webpack.svg" alt="Webpack" title="Webpack" height="50px"/><br>**Webpack**|

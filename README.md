@@ -1,6 +1,6 @@
 # MyReads Project
 
-This app was built with React. It lets you search and move books to and from three distinct bookshelves: "Read", "Currently Reading" and "Want To Read".
+This app was built with React. It lets you search and move books to and from three distinct bookshelves: _Read_, _Currently Reading_ and _Want To Read_.
 
 ## Extra Features
 
@@ -30,7 +30,15 @@ The file `BooksAPI.js` has been replaced by [`Queries.graphql.js`](src/utils/Que
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which are listed below. These are the _only_ terms that will work with the backend.
 
 ```
-'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
+'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 
+'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 
+'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 
+'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 
+'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 
+'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 
+'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 
+'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 
+'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
 ```
 
 ## Tech Stack
@@ -42,4 +50,3 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 <img src="https://cdn.svgporn.com/logos/html-5.svg" alt="HTML5" title="HTML5" height="50px"/><br>**HTML5**|<img src="https://cdn.svgporn.com/logos/javascript.svg" alt="JavaScript" title="JavaScript" height="50px"/><br>**JavaScript**|<img src="https://cdn.svgporn.com/logos/prettier.svg" alt="Prettier" title="Prettier" height="50px"/><br>**Prettier**
 <img src="https://cdn.svgporn.com/logos/react.svg" alt="React" title="React" height="50px"/><br>**React**|<img src="https://cdn.svgporn.com/logos/react-router.svg" alt="React Router" title="React Router" height="50px"/><br>**React Router**|<img src="https://cdn.svgporn.com/logos/svg.svg" alt="SVG" title="SVG" height="50px"/><br>**SVG**
 <img src="https://cdn.svgporn.com/logos/webpack.svg" alt="Webpack" title="Webpack" height="50px"/><br>**Webpack**||
-||

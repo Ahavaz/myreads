@@ -19,7 +19,7 @@ const SearchBar = ({ query, onUpdateQuery }) => {
         inputRef={searchInput}
         className="search-input"
         type="text"
-        placeholder="Search by title or author"
+        placeholder="&#xf002; Search by title or author"
         value={query}
         onChange={e => onUpdateQuery(e.target.value)}
         debounceTimeout={300}

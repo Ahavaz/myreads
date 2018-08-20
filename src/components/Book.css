@@ -13,15 +13,21 @@
 .book-top {
   position: relative;
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
   align-items: flex-end;
 }
 .book-cover {
   height: 193px;
   width: 128px;
+  -webkit-box-shadow: var(--button-box-shadow);
   box-shadow: var(--button-box-shadow);
 }
 .book-cover:hover {
+  -webkit-box-shadow: var(--book-box-shadow-active);
   box-shadow: var(--book-box-shadow-active);
 }
 
@@ -34,6 +40,7 @@
   border-radius: 50%;
   background: var(--primary-color) url('../icons/arrow-drop-down.svg') no-repeat center;
   background-size: 20px;
+  -webkit-box-shadow: var(--button-box-shadow);
   box-shadow: var(--button-box-shadow);
 }
 .book-shelf-changer select {
@@ -44,6 +51,7 @@
   cursor: pointer;
 }
 .book-shelf-changer select:focus, .book-shelf-changer select option:focus {
+  -webkit-box-shadow: var(--button-box-shadow-active);
   box-shadow: var(--button-box-shadow-active);
 }
 .book-shelf-changer select {

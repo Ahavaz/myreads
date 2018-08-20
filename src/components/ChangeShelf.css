@@ -1,7 +1,12 @@
 .change-shelf {
   padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
 }
 .change-shelf button {
@@ -11,15 +16,20 @@
   border-radius: 10%;
   color: var(--primary-light-color);
   background: var(--primary-color);
+  -webkit-box-shadow: var(--button-box-shadow);
   box-shadow: var(--button-box-shadow);
   cursor: pointer;
   border: none;
   outline: none;
   margin: 0 10px;
   font-size: 1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 .change-shelf button:hover, .change-shelf button:focus {
+  -webkit-box-shadow: var(--button-box-shadow), var(--button-box-shadow-active);
   box-shadow: var(--button-box-shadow), var(--button-box-shadow-active);
 }
 .change-shelf button.selected {

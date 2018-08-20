@@ -43,7 +43,7 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 ## Tech Stack
 
-||||
+-|-|-
 :---:|:---:|:---:|
 <img src="https://cdn.svgporn.com/logos/apollostack.svg" alt="Apollo" title="Apollo" height="50px"/><br>**Apollo**|<img src="https://cdn.svgporn.com/logos/babel.svg" alt="Babel" title="Babel" height="50px"/><br>**Babel**|<img src="https://cdn.svgporn.com/logos/css-3.svg" alt="CSS3" title="CSS3" height="50px"/><br>**CSS3**
 <img src="https://cdn.svgporn.com/logos/eslint.svg" alt="ESlint" title="ESlint" height="50px"/><br>**ESlint**|<img src="https://cdn.svgporn.com/logos/font-awesome.svg" alt="Font Awesome" title="Font Awesome" height="50px"/><br>**Font Awesome**|<img src="https://cdn.svgporn.com/logos/graphql.svg" alt="GraphQL" title="GraphQL" height="50px"/><br>**GraphQL**

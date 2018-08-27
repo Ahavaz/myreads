@@ -1,12 +1,14 @@
 {
+  "homepage": "https://ahavaz.github.io/myreads",
   "name": "myreads",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "apollo-cache-inmemory": "^1.2.7",
     "apollo-client": "^2.3.8",
     "apollo-link-context": "^1.0.8",
     "apollo-link-rest": "^0.4.4",
+    "gh-pages": "^1.2.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "prop-types": "^15.6.1",
@@ -35,6 +37,8 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

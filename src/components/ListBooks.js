@@ -21,7 +21,12 @@ const ListBooks = ({ books, loading, onUpdateBookShelf }) => (
               title={book.title}
               shelf={book.shelf || 'none'}
               image={
-                (book.imageLinks && book.imageLinks.thumbnail) || undefined
+                (book.imageLinks &&
+                  book.imageLinks.thumbnail.replace(
+                    /^http:\/\//i,
+                    'https://'
+                  )) ||
+                undefined
               }
               authors={book.authors || []}
               rating={book.averageRating || 0}

@@ -1,6 +1,6 @@
 # MyReads Project
 
-This app was built with React. It lets you search and move books to and from three distinct bookshelves: _Read_, _Currently Reading_ and _Want To Read_.
+This is a responsive web application that allows users to select and categorize books into a virtual bookshelf. Leveraged React to support a dynamic user interface that uses Apollo and GraphQL to interact with a RESTful API server and client library. The user is able to search and move books to and from three distinct bookshelves: _Read_, _Currently Reading_ and _Want To Read_.
 
 ## Extra Features
 

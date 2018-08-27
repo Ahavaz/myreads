@@ -18,12 +18,12 @@ This is a responsive web application that allows users to select and categorize 
 
 To get the application up and running right away:
 
-* install all project dependencies with `npm install` or only production dependencies with `npm install --only=production`
+* install project production dependencies with `npm i --production`
 * start the development server with `npm start`
 
 ## Backend Server
 
-The file `BooksAPI.js` has been replaced by [`Queries.graphql.js`](src/utils/Queries.graphql.js) which contains the GraphQL queries that interact with the REST API endpoints.
+The file [`Queries.graphql.js`](src/utils/Queries.graphql.js) contains the GraphQL queries that interact with the REST API endpoints.
 
 ## Search Terms
 

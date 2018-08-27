@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/myreads/favicon.ico"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><title>MyReads</title><script type="text/javascript">!function(i){if(i.search){var l={};i.search.slice(1).split("&").forEach(function(i){var a=i.split("=");l[a[0]]=a.slice(1).join("=").replace(/~and~/g,"&")}),void 0!==l.p&&window.history.replaceState(null,null,i.pathname.slice(0,-1)+(l.p||"")+(l.q?"?"+l.q:"")+i.hash)}}(window.location)</script><link href="/myreads/static/css/main.dadcc914.css" rel="stylesheet"></head><body><div id="root"></div><script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/1.2.0/trianglify.min.js"></script><script>let pattern = Trianglify({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      cell_size: 75,
+      variance: 1,
+      x_colors: ['#071013', '#33658A', '#56E39F', '#607466', '#5BC8AF'],
+      y_colors: 'match_x',
+      palette: Trianglify.colorbrewer,
+      color_space: 'lab',
+      color_function: false,
+      stroke_width: 1.51,
+      seed: null
+    })
+
+    document.body.appendChild(pattern.canvas())
+    window.addEventListener('resize', () => {
+      pattern = Trianglify({
+        width: window.innerWidth,
+        height: window.innerHeight,
+        cell_size: 75,
+        variance: 1,
+        x_colors: ['#071013', '#33658A', '#56E39F', '#607466', '#5BC8AF'],
+        y_colors: 'match_x',
+        palette: Trianglify.colorbrewer,
+        color_space: 'lab',
+        color_function: false,
+        stroke_width: 1.51,
+        seed: null
+      })
+
+      let canvas = document.querySelector('canvas')
+      canvas.parentNode.removeChild(canvas)
+      document.body.appendChild(pattern.canvas())
+    })</script><script type="text/javascript" src="/myreads/static/js/main.13c85f6c.js"></script></body></html>

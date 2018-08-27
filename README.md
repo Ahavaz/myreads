@@ -1,6 +1,6 @@
 # MyReads Project
 
-This is a responsive web application that allows users to select and categorize books into a virtual bookshelf. Leveraged React to support a dynamic user interface that uses Apollo and GraphQL to interact with a RESTful API server and client library. The user is able to search and move books to and from three distinct bookshelves: _Read_, _Currently Reading_ and _Want To Read_.
+This is a responsive web application that allows users to select and categorize books into a virtual bookshelf. Leveraged React to support a dynamic user interface that uses Apollo and GraphQL to interact with a RESTful API server and client library. The user is able to search and move books to and from three distinct bookshelves: _Read_, _Currently Reading_ and _Want To Read_. You can visit the deployed app [here](https://ahavaz.github.io/myreads/).
 
 ## Extra Features
 
@@ -18,7 +18,7 @@ This is a responsive web application that allows users to select and categorize 
 
 To get the application up and running right away:
 
-* install all project dependencies with `npm install`
+* install all project dependencies with `npm install` or only production dependencies with `npm install --only=production`
 * start the development server with `npm start`
 
 ## Backend Server

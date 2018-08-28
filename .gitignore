@@ -17,6 +17,7 @@
 .env.production.local
 .babelrc
 .eslintrc.json
+package.json.dev
 
 npm-debug.log*
 yarn-debug.log*

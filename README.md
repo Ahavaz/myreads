@@ -18,7 +18,7 @@ This is a responsive web application that allows users to select and categorize 
 
 To get the application up and running right away:
 
-* install required project dependencies with `npm i --no-optional`
+* install required project dependencies with `npm i`
 * start the development server with `npm start`
 
 ## Backend Server

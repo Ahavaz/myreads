@@ -8,28 +8,29 @@ html, body, #root, .books-app {
   --secondary-light-color: #56E39F;
   --toast-info-color: #33658A;
   --toast-error-color: #BA2D0B;
-  
+  --shadow-color: #2e3d498c;
+  --shadow-active-color: #2e3d4999;
+
   /* Box Shadows */
-  --button-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  --search-box-shadow: 0 10px 20px rgba(0,0,0,0.16), 0 0 6px rgba(0,0,0,0.23);
-  --button-box-shadow-active: inset 0 0 3px 1px var(--secondary-color);
-  --book-box-shadow-active: 0 0 5px 3px var(--primary-color);
+  --header-shadow: 0 6px 10px 0 var(--shadow-color);
+  --item-shadow: 8px 10px 20px 0 var(--shadow-color);
+  --item-shadow-active: 2px 4px 8px 0 var(--shadow-active-color);
 }
 body {
   line-height: 1.3;
   margin: 0;
 }
 body *, body *::-webkit-input-placeholder {
-  -webkit-transition: 250ms;
-  transition: 250ms;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
 }
 body *, body *:-ms-input-placeholder {
-  -webkit-transition: 250ms;
-  transition: 250ms;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
 }
 body *, body *::placeholder {
-  -webkit-transition: 250ms;
-  transition: 250ms;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
 }
 
 ::-moz-selection {

@@ -16,8 +16,8 @@
   border-radius: 10%;
   color: var(--primary-light-color);
   background: var(--primary-color);
-  -webkit-box-shadow: var(--button-box-shadow);
-  box-shadow: var(--button-box-shadow);
+  -webkit-box-shadow: var(--item-shadow);
+  box-shadow: var(--item-shadow);
   cursor: pointer;
   border: none;
   outline: none;
@@ -28,9 +28,9 @@
   -ms-user-select: none;
   user-select: none;
 }
-.change-shelf button:hover, .change-shelf button:focus {
-  -webkit-box-shadow: var(--button-box-shadow), var(--button-box-shadow-active);
-  box-shadow: var(--button-box-shadow), var(--button-box-shadow-active);
+.change-shelf button:hover {
+  -webkit-box-shadow: var(--item-shadow-active);
+  box-shadow: var(--item-shadow-active);
 }
 .change-shelf button.selected {
   color: var(--secondary-color);
